@@ -1,0 +1,38 @@
+name: Compile stuff
+
+#  https://blog.gentilkiwi.com/programmation/msbuild
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create_binary:
+    name: Create binary
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v2
+      # C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(442,5):
+      #  error MSB8020: The build tools for v141_xp (Platform Toolset = 'v141_xp') cannot be found. To build using the
+      #  v141_xp build tools, please install v141_xp build tools.  Alternatively, you may upgrade to the current Visual
+      #  Studio tools by selecting the Project menu or right-click the solution, and then selecting "Retarget solution".
+      #  [D:\a\mimikatz\mimikatz\mimikatz\mimikatz.vcxproj]
+#        - name: Add v141_xp support
+#          shell: cmd
+#          working-directory: C:\Program Files (x86)\Microsoft Visual Studio\Installer\
+#          run: >
+#            vs_installer.exe modify --installPath "C:\Program Files\Microsoft Visual Studio\2022\Preview"
+#            --add Microsoft.VisualStudio.Component.WinXP
+#            --add Microsoft.VisualStudio.Component.VC.Tools.ARM
+#            --add Microsoft.VisualStudio.Component.VC.Tools.ARM64
+#            --norestart --nocache
+      # --quiet
+      - name: tmp
+        shell: cmd
+        run: dir
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.1
+      - name: Build app for release
+        run: msbuild mimikatz.sln /target:Rebuild /property:Configuration=Release /property:Platform=x64 /verbosity:d
+      - name: tmp
+        shell: cmd
+        run: dir
