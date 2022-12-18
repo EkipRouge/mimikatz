@@ -48,3 +48,5 @@ test1
 
 > set VCTargetsPath environment variable to 
 > C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\IDE\VC\VCTargets
+
+[https://stackoverflow.com/questions/63540048/where-exactly-is-macro-vctargetspath-defined](https://stackoverflow.com/questions/63540048/where-exactly-is-macro-vctargetspath-defined)
