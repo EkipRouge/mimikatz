@@ -32,7 +32,7 @@ jobs:
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.1
       - name: Build app for release
-        run: msbuild mimikatz.sln /target:Rebuild /property:Configuration=Release /property:Platform=Win32 /verbosity:d
+        run: msbuild mimikatz.sln /target:Rebuild /property:Configuration=Release /property:Platform=x64 /verbosity:d
       - name: tmp
         shell: cmd
         run: dir
