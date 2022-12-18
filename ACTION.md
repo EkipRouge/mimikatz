@@ -32,6 +32,8 @@ MachinePolicy       Undefined
 
 ### v141_xp support 
 
-![](img/v141_xp_1.png) 
+![](img/v141_xp_1.png)
+
+![](img/v141_xp_vc2019.png) 
 
 ### Microsoft.Cpp.Redirect.14.props
